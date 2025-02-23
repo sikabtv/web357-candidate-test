@@ -17,6 +17,8 @@ use \Joomla\CMS\Router\Route;
 use \Joomla\CMS\Language\Text;
 use \Joomla\CMS\Session\Session;
 use Joomla\Utilities\ArrayHelper;
+use Webtest\Component\Web357test\Site\Enum\RecipeDifficulty;
+use Webtest\Component\Web357test\Site\Enum\ServingSize;
 
 $canEdit = Factory::getApplication()->getIdentity()->authorise('core.edit', 'com_web357test');
 
@@ -33,7 +35,7 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
     </div>
     <?php endif;?>
 	<table class="table">
-		
+
 
 		<tr>
 			<th><?php echo Text::_('COM_WEB357TEST_FORM_LBL_RECIPE_TITLE'); ?></th>
@@ -60,13 +62,25 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
 			<td>
 			<?php
 
-			if (!empty($this->item->difficulty) || $this->item->difficulty === 0)
-			{
-				echo Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_' . preg_replace('/[^A-Za-z0-9\_-]/', '',strtoupper(str_replace(' ', '_',$this->item->difficulty))));
-			}
+            $difficulty = RecipeDifficulty::tryFrom($this->item->difficulty);
+            if ($difficulty)
+            {
+                echo $difficulty->getHtml();
+            }
 			?></td>
 		</tr>
+        <tr>
+            <th><?php echo Text::_('COM_WEB357TEST_FORM_LBL_SERVING_SIZE'); ?></th>
+            <td>
+                <?php
 
+                $servingSize = ServingSize::tryFrom($this->item->serving_size);
+                if ($servingSize)
+                {
+                    echo $servingSize->getText();
+                }
+                ?></td>
+        </tr>
 	</table>
 
 </div>
@@ -93,7 +107,7 @@ if (!$canEdit && Factory::getApplication()->getIdentity()->authorise('core.edit.
                                         'title'  => Text::_('COM_WEB357TEST_DELETE_ITEM'),
                                         'height' => '50%',
                                         'width'  => '20%',
-                                        
+
                                         'modalWidth'  => '50',
                                         'bodyHeight'  => '100',
                                         'footer' => '<button class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button><a href="' . Route::_('index.php?option=com_web357test&task=recipe.remove&id=' . $this->item->id, false, 2) .'" class="btn btn-danger">' . Text::_('COM_WEB357TEST_DELETE_ITEM') .'</a>'

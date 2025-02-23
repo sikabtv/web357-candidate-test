@@ -14,10 +14,17 @@ Read [CHANGELOG.md](CHANGELOG.md)
 ## New Features
 
 ### 🚨 New parameter `Serving size` for Recipe in the administrator form
+
 ![Serving size parameter for Recipe](./assets/images/01-serving-parameter-field.png)
 
 ### 🚨 New parameter `Serving size` for Recipe in frontend form
+
 ![Serving size parameter for Recipe](./assets/images/02-serving-parameter-field-frontend.png)
+
+### 🚨 Display serving size and difficulty levels as stars in the frontend recipe list and single page view
+
+![Difficulty stars and serving size in recipes list page](./assets/images/03-site-recipe-list.png)
+![Difficulty stars and serving size in single recipe page](./assets/images/04-site-recipe-single.png)
 
 ## Testing
 
