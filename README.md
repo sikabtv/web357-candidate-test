@@ -11,6 +11,11 @@
 
 Read [CHANGELOG.md](CHANGELOG.md)
 
+## New Features
+
+### 🚨 New parameter `Serving size` for Recipe
+![Serving size parameter for Recipe](./assets/images/01-serving-parameter-field.png)
+
 ## Testing
 
 ### Installation

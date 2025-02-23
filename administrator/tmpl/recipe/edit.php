@@ -26,7 +26,7 @@ HTMLHelper::_('bootstrap.tooltip');
 	action="<?php echo Route::_('index.php?option=com_web357test&layout=edit&id=' . (int) $this->item->id); ?>"
 	method="post" enctype="multipart/form-data" name="adminForm" id="recipe-form" class="form-validate form-horizontal">
 
-	
+
 	<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'recipe')); ?>
 	<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'recipe', Text::_('COM_WEB357TEST_TAB_RECIPE', true)); ?>
 	<div class="row-fluid">
@@ -38,6 +38,7 @@ HTMLHelper::_('bootstrap.tooltip');
 				<?php echo $this->form->renderField('ingredients'); ?>
 				<?php echo $this->form->renderField('cooking_time'); ?>
 				<?php echo $this->form->renderField('difficulty'); ?>
+				<?php echo $this->form->renderField('serving_size'); ?>
 			</fieldset>
 		</div>
 	</div>
@@ -49,7 +50,7 @@ HTMLHelper::_('bootstrap.tooltip');
 	<?php echo $this->form->renderField('created_by'); ?>
 	<?php echo $this->form->renderField('modified_by'); ?>
 
-	
+
 	<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 
 	<input type="hidden" name="task" value=""/>
