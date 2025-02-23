@@ -19,6 +19,7 @@ use \Joomla\CMS\Helper\TagsHelper;
 use \Joomla\Database\ParameterType;
 use \Joomla\Utilities\ArrayHelper;
 use Webtest\Component\Web357test\Administrator\Helper\Web357testHelper;
+use Webtest\Component\Web357test\Site\Enum\RecipeDifficulty;
 
 /**
  * Methods supporting a list of Recipes records.
@@ -57,11 +58,11 @@ class RecipesModel extends ListModel
 	}
 
 
-	
 
-	
 
-	
+
+
+
 
 	/**
 	 * Method to auto-populate the model state.
@@ -82,6 +83,10 @@ class RecipesModel extends ListModel
 
 		$context = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
 		$this->setState('filter.search', $context);
+
+        // Load difficulty filter from request
+        $difficulty = $this->getUserStateFromRequest($this->context.'.filter.difficulty', 'filter_difficulty');
+        $this->setState('filter.difficulty', $difficulty);
 
 		// Split context into component and optional section
 		if (!empty($context))
@@ -114,10 +119,10 @@ class RecipesModel extends ListModel
 		// Compile the store id.
 		$id .= ':' . $this->getState('filter.search');
 		$id .= ':' . $this->getState('filter.state');
+        $id .= ':' . $this->getState('filter.difficulty');
 
-		
 		return parent::getStoreId($id);
-		
+
 	}
 
 	/**
@@ -140,7 +145,7 @@ class RecipesModel extends ListModel
 			)
 		);
 		$query->from('`#__web357test_recipes` AS a');
-		
+
 		// Join over the users for the checked out user
 		$query->select("uc.name AS uEditor");
 		$query->join("LEFT", "#__users AS uc ON uc.id=a.checked_out");
@@ -152,7 +157,7 @@ class RecipesModel extends ListModel
 		// Join over the user field 'modified_by'
 		$query->select('`modified_by`.name AS `modified_by`');
 		$query->join('LEFT', '#__users AS `modified_by` ON `modified_by`.id = a.`modified_by`');
-		
+
 
 		// Filter by published state
 		$published = $this->getState('filter.state');
@@ -166,6 +171,12 @@ class RecipesModel extends ListModel
 			$query->where('(a.state IN (0, 1))');
 		}
 
+        // Filter by difficulty
+        $difficulty = RecipeDifficulty::tryFrom($this->getState('filter.difficulty'));
+        if($difficulty) {
+            $query->where('a.difficulty = ' . $db->quote($difficulty->value));
+        }
+
 		// Filter by search in title
 		$search = $this->getState('filter.search');
 
@@ -178,10 +189,10 @@ class RecipesModel extends ListModel
 			else
 			{
 				$search = $db->Quote('%' . $db->escape($search, true) . '%');
-				
+
 			}
 		}
-		
+
 		// Add the list ordering clause.
 		$orderCol  = $this->state->get('list.ordering', 'id');
 		$orderDirn = $this->state->get('list.direction', 'ASC');
@@ -202,7 +213,7 @@ class RecipesModel extends ListModel
 	public function getItems()
 	{
 		$items = parent::getItems();
-		
+
 		foreach ($items as $oneItem)
 		{
 					$oneItem->difficulty = !empty($oneItem->difficulty) ? Text::_('COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_' . preg_replace('/[^A-Za-z0-9\_-]/', '',strtoupper(str_replace(' ', '_',$oneItem->difficulty)))) : '';

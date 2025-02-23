@@ -1,0 +1,41 @@
+{
+  "availableDifficulties": [
+    {
+      "value": "easy",
+      "label": "easy",
+      "stars": 1
+    },
+    {
+      "value": "medium",
+      "label": "medium",
+      "stars": 2
+    },
+    {
+      "value": "hard",
+      "label": "hard",
+      "stars": 3
+    }
+  ],
+  "availableServingSizes": [
+    {
+      "value": "10",
+      "label": "1-2 servings"
+    },
+    {
+      "value": "20",
+      "label": "2-4 servings"
+    },
+    {
+      "value": "30",
+      "label": "4-6 servings"
+    },
+    {
+      "value": "40",
+      "label": "6-8 servings"
+    },
+    {
+      "value": "50",
+      "label": "8+ servings"
+    }
+  ]
+}

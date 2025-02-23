@@ -11,7 +11,19 @@
 							onchange="this.form.submit();">
 							<option value="">JOPTION_SELECT_PUBLISHED</option>
 						</field>
-        
+
+        <field
+                name="difficulty"
+                type="list"
+                label="COM_WEB357TEST_FILTER_DIFFICULTY"
+                description="COM_WEB357TEST_FILTER_DIFFICULTY_DESC"
+                onchange="this.form.submit();"
+        >
+            <option value="">COM_WEB357TEST_FILTER_DIFFICULTY</option>
+            <option value="easy">COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_EASY</option>
+            <option value="medium">COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM</option>
+            <option value="hard">COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD</option>
+        </field>
 
     </fields>
 

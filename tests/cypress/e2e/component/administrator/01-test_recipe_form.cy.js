@@ -25,43 +25,23 @@ describe('Web357Test - Recipe Form Tests', () => {
      * Check Serving size options dropdown existence and values
      */
     it('Check Serving size dropdown existence and values', () => {
-        cy.visit('/administrator/index.php?option=com_web357test&task=recipe.add');
 
-        const dropdownSelector = '[name="jform[serving_size]"]';
+        // Load the fixture
+        cy.fixture('enums').then(function (enums) {
+            cy.visit('/administrator/index.php?option=com_web357test&task=recipe.add');
 
-        cy.get(dropdownSelector).should('exist');
+            const dropdownSelector = '[name="jform[serving_size]"]';
 
-        // Available Serving size options
-        const values = [
-            {
-                value: '10',
-                label: '1-2 servings'
-            },
-            {
-                value: '20',
-                label: '2-4 servings'
-            },
-            {
-                value: '30',
-                label: '4-6 servings'
-            },
-            {
-                value: '40',
-                label: '6-8 servings'
-            },
-            {
-                value: '50',
-                label: '8+ servings'
-            },
-        ];
+            cy.get(dropdownSelector).should('exist');
 
-        values.forEach((dropdownOption) => {
+            enums.availableServingSizes.forEach((dropdownOption) => {
 
-            // Select the value from the dropdown based on label
-            cy.get(dropdownSelector).select(dropdownOption.label);
+                // Select the value from the dropdown based on label
+                cy.get(dropdownSelector).select(dropdownOption.label);
 
-            // Verify the selected value
-            cy.get(dropdownSelector).should('have.value', dropdownOption.value);
+                // Verify the selected value
+                cy.get(dropdownSelector).should('have.value', dropdownOption.value);
+            })
         })
 
     });

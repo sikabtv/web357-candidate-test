@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - New parameter "Serving size" for Recipe in the administrator form
 - New parameter "Serving size" for Recipe in frontend form
+- New filter "Difficulty" in the administrator Recipe list
 
 ### Changed
 
