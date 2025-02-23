@@ -13,8 +13,11 @@ Read [CHANGELOG.md](CHANGELOG.md)
 
 ## New Features
 
-### 🚨 New parameter `Serving size` for Recipe
+### 🚨 New parameter `Serving size` for Recipe in the administrator form
 ![Serving size parameter for Recipe](./assets/images/01-serving-parameter-field.png)
+
+### 🚨 New parameter `Serving size` for Recipe in frontend form
+![Serving size parameter for Recipe](./assets/images/02-serving-parameter-field-frontend.png)
 
 ## Testing
 

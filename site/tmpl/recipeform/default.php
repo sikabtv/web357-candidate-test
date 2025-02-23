@@ -52,7 +52,7 @@ $canEdit = Web357testHelper::canUserEdit($this->item, $user);
 		<form id="form-recipe"
 			  action="<?php echo Route::_('index.php?option=com_web357test&task=recipeform.save'); ?>"
 			  method="post" class="form-validate form-horizontal" enctype="multipart/form-data">
-			
+
 	<input type="hidden" name="jform[id]" value="<?php echo isset($this->item->id) ? $this->item->id : ''; ?>" />
 
 	<input type="hidden" name="jform[state]" value="<?php echo isset($this->item->state) ? $this->item->state : ''; ?>" />
@@ -70,6 +70,8 @@ $canEdit = Web357testHelper::canUserEdit($this->item, $user);
 	<?php echo $this->form->renderField('cooking_time'); ?>
 
 	<?php echo $this->form->renderField('difficulty'); ?>
+
+	<?php echo $this->form->renderField('serving_size'); ?>
 
 	<?php echo HTMLHelper::_('uitab.endTab'); ?>
 			<div class="control-group">

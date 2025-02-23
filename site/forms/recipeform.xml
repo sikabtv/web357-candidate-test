@@ -20,6 +20,13 @@
       <option value="medium">COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_MEDIUM</option>
       <option value="hard">COM_WEB357TEST_RECIPES_DIFFICULTY_OPTION_HARD</option>
     </field>
+    <field name="serving_size" type="list" label="COM_WEB357TEST_FORM_LBL_SERVING_SIZE" description="COM_WEB357TEST_FORM_DESC_SERVING_SIZE" hint="COM_WEB357TEST_FORM_LBL_SERVING_SIZE">
+      <option value="10">COM_WEB357TEST_RECIPES_SERVING_SIZE_OPTION_1_2</option>
+      <option value="20">COM_WEB357TEST_RECIPES_SERVING_SIZE_OPTION_2_4</option>
+      <option value="30">COM_WEB357TEST_RECIPES_SERVING_SIZE_OPTION_4_6</option>
+      <option value="40">COM_WEB357TEST_RECIPES_SERVING_SIZE_OPTION_6_8</option>
+      <option value="50">COM_WEB357TEST_RECIPES_SERVING_SIZE_OPTION_8_PLUS</option>
+    </field>
     <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
   </fieldset>
 </form>
