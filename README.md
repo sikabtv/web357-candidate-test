@@ -6,6 +6,7 @@
 - Go to your Joomla! Backend in `System -> Extensions -> Upload Package File`
 - Upload `web357-candidate-test.zip`
 - Enjoy the component in `Components -> Web357 Test -> Recipes`
+- Configure the module in `Modules -> Web357 Random Recipe Module`
 
 ## Changelog
 
@@ -26,10 +27,13 @@ Read [CHANGELOG.md](CHANGELOG.md)
 ![Difficulty stars and serving size in recipes list page](./assets/images/03-site-recipe-list.png)
 ![Difficulty stars and serving size in single recipe page](./assets/images/04-site-recipe-single.png)
 
-
 ### 🚨 New filter "Difficulty" in the administrator Recipe list
 
 ![Difficulty filter in the administrator recipe list](./assets/images/05-difficulty-filter-admin.png)
+
+### 🚨 New "Random Recipe Module" for frontend
+
+![Random Recipe Module](./assets/images/06-random-recipe-module.png)
 
 ## Testing
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+    <name>MOD_WEB357RANDOMRECIPE_NAME</name>
+    <version>1.0.0</version>
+    <author>Web357 Dev</author>
+    <creationDate>2025-02-25</creationDate>
+    <description>MOD_WEB357RANDOMRECIPE_DESC</description>
+    <namespace path="src">Webtest\Module\Web357RandomRecipe</namespace>
+    <files>
+        <folder module="mod_web357_random_recipe">services</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>language</folder>
+    </files>
+</extension>

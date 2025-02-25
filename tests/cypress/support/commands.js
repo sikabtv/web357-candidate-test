@@ -104,11 +104,26 @@ Cypress.Commands.add('clearDataAndInstallComponent', () => {
 
 
     // uninstall if component is installed
-    cy.uninstallExtensionIfExist('Web357 Test')
+    cy.uninstallExtensionIfExist('Web357 Test Package')
 
     // install component
     cy.installExtensionFromFileUpload('../../../web357-candidate-test.zip');
 
     cy.doAdministratorLogout()
+})
+
+
+/**
+ * Enables and configures the Random Recipe Module for testing
+ */
+Cypress.Commands.add('enableAndConfigureRandomRecipeModule', (moduleName) => {
+
+    cy.doAdministratorLogin(Cypress.env('adminUsername'), Cypress.env('adminPassword'), false);
+
+    moduleName = 'Web357 Random Recipe Module';
+    cy.setModulePosition(moduleName, 'sidebar-right');
+    cy.publishModule(moduleName)
+    cy.displayModuleOnAllPages(moduleName)
+
 })
 
