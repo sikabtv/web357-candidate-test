@@ -1,5 +1,19 @@
 # Web357 Test
 
+### Create ZIP Package for Joomla!
+
+Install the necessary dependencies
+
+```bash
+npm install
+```
+
+Build the package
+
+```bash
+npm run build
+```
+
 ## Installation
 
 - Download `web357-candidate-test.zip`
@@ -84,12 +98,4 @@ To open Cypress in interactive mode, run:
 
 ```bash
 npm run cypress:open
-```
-
-### Create ZIP Installation
-
-Create package for Joomla!
-
-```bash
-npm run build
 ```

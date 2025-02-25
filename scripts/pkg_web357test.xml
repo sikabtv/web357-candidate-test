@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="1.6" method="upgrade">
+    <name>Web357 Test Package</name>
+    <author>Web357 Dev</author>
+    <creationDate>2025-02-24</creationDate>
+    <copyright>2025 Web357.com</copyright>
+    <packagename>web357test</packagename>
+    <version>1.0.0</version>
+    <url>https://www.web357.com/</url>
+    <packager>Web357 Dev</packager>
+    <packagerurl>https://www.web357.com</packagerurl>
+    <description>Web357 Test Package</description>
+    <update>https://www.web357.com</update>
+    <blockChildUninstall>true</blockChildUninstall>
+    <files folder="packages">
+        <file type="component" id="com_web357test">com_web357test.zip</file>
+        <file type="module" id="mod_web357_random_recipe" client="site">mod_web357_random_recipe.zip</file>
+    </files>
+</extension>

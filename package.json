@@ -1,13 +1,14 @@
 {
   "scripts": {
-    "build": "rimraf web357-candidate-test.zip && zip -q -r web357-candidate-test.zip 'administrator' 'installer' 'media' 'site' 'webservices' 'web357test.xml'",
+    "build": "node scripts/build.js",
     "cypress:cli": "npm run build && cypress run --config-file tests/cypress/cypress.config.js && rimraf web357-candidate-test.zip",
     "cypress:open": "npm run build && cypress open --config-file tests/cypress/cypress.config.js && rimraf web357-candidate-test.zip",
-    "docker:up": " docker compose up --force-recreate --build --renew-anon-volumes"
+    "docker:up": "docker compose up --force-recreate --build --renew-anon-volumes"
   },
   "devDependencies": {
     "cypress": "^14.0.3",
     "joomla-cypress": "^1.3.0",
-    "rimraf": "^5.0.10"
+    "rimraf": "^5.0.10",
+    "archiver": "^5.3.1"
   }
 }
